@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="todolist not-done">
+      <h1>Todos ({{todos.length}}) </h1> 
+      <form name="todoForm" ng-submit="addTodo(todo)" novalidate="true">
+        <div class="input-group">          
+          <input type="text" name="name" ng-model="todo.name" class="form-control add-todo" placeholder="Add Todo!" ng-required="true" />
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">Add !</button>
+          </span>
+        </div>
+      </form>
+      <button class="btn btn-success check-all" ng-click="doAllTodos()" ng-disabled="!hasTodos">Mark all as done</button>
+      <hr />
+      <ul class="list-unstyled">
+        <li class="ui-state-default" ng-repeat="todo in todos">          
+          <div class="checkbox">
+            <label>
+              <span class="glyphicon glyphicon-ok has-success" style="color: #3c763d" ng-click="done(todo._id)">&nbsp;</span>
+              <!-- <input type="checkbox" ng-click="done(todo._id)" /> -->
+              <span class="strong">{{todo.name}}</span>
+            </label>
+            <div class="pull-right">{{todo.createdDate | date: 'yyyy-MM-dd HH:mm:ss'}}</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="todolist">
+      <h1>Already Done ({{dones.length}}) </h1> 
+      <ul class="list-unstyled done-items">
+        <li ng-repeat="todo in dones">
+          <s class="">{{todo.name}}</s>
+          <div class="pull-right">
+            <button class="remove-item btn btn-info btn-xs" ng-click="redo(todo._id)" >
+              <span class="glyphicon glyphicon-erase" title="Redo"></span>
+            </button>
+            <button class="remove-item btn btn-danger btn-xs" ng-click="deleteTodo(todo._id)">
+              <span class="glyphicon glyphicon-remove" title="Remove"></span>
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
