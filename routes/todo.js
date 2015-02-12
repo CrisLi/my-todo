@@ -13,8 +13,6 @@ router.get('/todos', function(req, res, next) {
 
 router.post('/todos', function(req, res, next) {
 
-  console.log(req.user);
-
   var todo = new Todo(req.body);
   todo.user = req.currentUserId;
 
