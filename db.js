@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var url = require('./config/db.json').url
+var url = require('./config/db.json').url;
 
 exports.connectDB = function() {
   mongoose.connect(url, function(err) {
