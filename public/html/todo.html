@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-6">
     <div class="todolist not-done">
-      <h1>Todos ({{todos.length}}) </h1> 
+      <h1>Todos <small>({{todos.length}})</small> </h1> 
       <form name="todoForm" ng-submit="addTodo(todo)" novalidate="true">
         <div class="input-group">          
           <input type="text" name="name" ng-model="todo.name" class="form-control add-todo" placeholder="Add Todo!" ng-required="true" />
@@ -28,7 +28,7 @@
   </div>
   <div class="col-md-6">
     <div class="todolist">
-      <h1>Already Done ({{dones.length}}) </h1> 
+      <h1>Already Done <small>({{dones.length}})</small> </h1> 
       <ul class="list-unstyled done-items">
         <li ng-repeat="todo in dones">
           <s class="">{{todo.name}}</s>

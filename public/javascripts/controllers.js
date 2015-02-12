@@ -97,6 +97,5 @@ angular.module("myTodo.Controllers", [])
   .controller("aboutController", function($rootScope, $scope) {
 
     $rootScope.PAGE = "about"
-    $scope.content = "Why we need a new Todo application?";
 
   });
